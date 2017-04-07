@@ -19,19 +19,8 @@ services:
             - 9000
         volumes:
             - ../src:/var/www/
-#    nginx:
-#        build: nginx
-#        ports:
-#            - 80:80
-#        links:
-#            - php
-#        volumes_from:
-#            - php
-#        volumes:
-#            - ./logs/nginx/:/var/log/nginx
-#        tty: true
-    apache:
-        build: apache
+    nginx:
+        build: nginx
         ports:
             - 80:80
         links:
@@ -39,5 +28,16 @@ services:
         volumes_from:
             - php
         volumes:
-            - ./logs/apache/:/var/log/apache
+            - ./logs/nginx/:/var/log/nginx
         tty: true
+#    apache:
+#        build: apache
+#        ports:
+#            - 80:80
+#        links:
+#            - php
+#        volumes_from:
+#            - php
+#        volumes:
+#            - ./logs/apache/:/var/log/apache
+#        tty: true

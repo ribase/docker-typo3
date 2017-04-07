@@ -4,7 +4,7 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/workspace.xml
+.idea/
 .idea/tasks.xml
 
 # Sensitive or high-churn files:
@@ -45,3 +45,11 @@ fabric.properties
 
 /src/.composer/
 /src/vendor/
+/src/web/fileadmin/
+/src/web/typo3temp/
+/src/web/uploads/
+/src/web/index.php
+/src/web/typo3/
+/src/web/typo3conf/ext/
+/src/web/typo3conf/l10n/
+/src/web/typo3conf/PackageStates.php

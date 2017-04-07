@@ -1,0 +1,43 @@
+version: '2'
+services:
+    db:
+        image: mysql
+        ports:
+          - 3306:3306
+        environment:
+          MYSQL_ROOT_PASSWORD: typo3
+          MYSQL_DATABASE: typo3
+          MYSQL_USER: typo3
+          MYSQL_PASSWORD: typo3
+        volumes_from:
+          - php
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+    php:
+        build: php7-fpm #php5-fpm
+        ports:
+            - 9000
+        volumes:
+            - ../src:/var/www/
+#    nginx:
+#        build: nginx
+#        ports:
+#            - 80:80
+#        links:
+#            - php
+#        volumes_from:
+#            - php
+#        volumes:
+#            - ./logs/nginx/:/var/log/nginx
+#        tty: true
+    apache:
+        build: apache
+        ports:
+            - 80:80
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/apache/:/var/log/apache
+        tty: true
